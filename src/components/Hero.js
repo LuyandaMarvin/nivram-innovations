@@ -1,6 +1,4 @@
-"use client";
-
-
+"use client"
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, MapPin, Sun } from "lucide-react";
@@ -24,7 +22,7 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sky-200/30 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center mt-25">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,17 +82,17 @@ export default function Hero() {
         >
           <div className="glass-morphism rounded-3xl p-8 hover-glow border border-white/50">
             <div className="text-4xl mb-2">🎉</div>
-            <div className="text-3xl font-bold gradient-text mb-2">500+</div>
+            <div className="text-3xl font-bold gradient-text mb-2">50+</div>
             <div className="text-slate-600 font-medium">Happy Projects</div>
           </div>
           <div className="glass-morphism rounded-3xl p-8 hover-glow border border-white/50">
             <div className="text-4xl mb-2">🤝</div>
-            <div className="text-3xl font-bold gradient-text mb-2">150+</div>
+            <div className="text-3xl font-bold gradient-text mb-2">25+</div>
             <div className="text-slate-600 font-medium">Amazing Clients</div>
           </div>
           <div className="glass-morphism rounded-3xl p-8 hover-glow border border-white/50">
             <div className="text-4xl mb-2">🏔️</div>
-            <div className="text-3xl font-bold gradient-text mb-2">5+</div>
+            <div className="text-3xl font-bold gradient-text mb-2">2+</div>
             <div className="text-slate-600 font-medium">Years from Cape Town</div>
           </div>
         </motion.div>

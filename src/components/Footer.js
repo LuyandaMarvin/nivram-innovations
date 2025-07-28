@@ -1,8 +1,9 @@
 "use client";
 
-
 import React from "react";
 import { Heart, ExternalLink, MapPin } from "lucide-react";
+import Link from "next/link";
+
 
 export default function Footer() {
   return (
@@ -55,11 +56,11 @@ export default function Footer() {
           <div className="text-slate-400 text-sm mb-4 md:mb-0">
             © 2024 Nivram Innovations. Built with ❤️ in Cape Town, South Africa 🇿🇦
           </div>
-          <div className="flex gap-6 text-slate-400 text-sm">
-            <a href="#" className="hover:text-sky-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-sky-400 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-sky-400 transition-colors">Cookie Policy</a>
-          </div>
+         <div className="flex gap-6 text-slate-400 text-sm">
+          <Link href="/privacy-policy" className="hover:text-sky-400 transition-colors">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="hover:text-sky-400 transition-colors">Terms of Service</Link>
+          <Link href="/cookie-policy" className="hover:text-sky-400 transition-colors">Cookie Policy</Link>
+        </div>
         </div>
       </div>
     </footer>

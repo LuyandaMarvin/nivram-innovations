@@ -16,15 +16,17 @@ const projects = [
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
     tags: ["AI/ML", "React", "Node.js", "OpenAI"],
     category: "AI Web App",
-    emoji: "📄"
+    emoji: "📄",
+    url: "https://anotly.com"
   },
   {
-    title: "Cape Town Tourism App",
-    description: "Beautiful mobile app showcasing the best of Cape Town with AR features and local recommendations! 🏔️",
-    image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&h=500&fit=crop",
-    tags: ["React Native", "AR", "Maps", "Tourism"],
-    category: "Mobile App",
-    emoji: "🏖️"
+    title: "VibeCode Platform",
+    description: "A next‑generation AI‑powered code builder that lets anyone create web apps effortlessly with Vibe‑driven coding! ⚡",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop",
+    tags: ["AI", "Next.js", "Tailwind", "Code Builder"],
+    category: "SaaS Platform",
+    emoji: "🚀",
+    url: "http://vibe-build-gamma.vercel.app/"
   },
   {
     title: "Smart Recruitment Platform",
@@ -32,7 +34,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop",
     tags: ["AI", "Python", "React", "Machine Learning"],
     category: "AI Agent",
-    emoji: "🎯"
+    emoji: "🎯",
+    url: "" 
   },
   {
     title: "Local Business Dashboard",
@@ -40,7 +43,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
     tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
     category: "Web Application",
-    emoji: "📊"
+    emoji: "📊",
+    url: "" 
   },
   {
     title: "E-Commerce Paradise",
@@ -48,7 +52,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
     tags: ["Next.js", "Stripe", "Tailwind", "PWA"],
     category: "Web Application",
-    emoji: "🛒"
+    emoji: "🛒",
+    url: "" 
   },
   {
     title: "Coding Learning Platform",
@@ -56,7 +61,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop",
     tags: ["AI", "TypeScript", "Monaco Editor", "Docker"],
     category: "AI Web App",
-    emoji: "💻"
+    emoji: "💻",
+    url: "" 
   }
 ];
 
@@ -93,6 +99,8 @@ export default function Portfolio() {
                   <Image
                     src={project.image}
                     alt={project.title}
+                    width={800}
+                    height={500}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -118,10 +126,12 @@ export default function Portfolio() {
                   </div>
                   
                   <div className="flex gap-3">
-                    <Button size="sm" variant="ghost" className="text-sky-600 hover:text-sky-700 hover:bg-sky-50 p-0 font-semibold">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View Project
-                    </Button>
+                    {project.url && (
+                      <Button onClick={() => window.open(project.url, "_blank")} size="sm" variant="ghost" className="text-sky-600 hover:text-sky-700 hover:bg-sky-50 p-0 font-semibold">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        View Project
+                      </Button>
+                    )}
                     <Button size="sm" variant="ghost" className="text-slate-500 hover:text-slate-600 hover:bg-slate-50 p-0">
                       <Heart className="w-4 h-4 mr-2" />
                       Love it

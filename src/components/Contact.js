@@ -180,7 +180,7 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold text-slate-800">Let&apos;s Start Something Amazing!</h3>
                 </div>
                 
-                <form onSubmit={() =>{}} className="space-y-6">
+                {/* <form onSubmit={() =>{}} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -302,7 +302,33 @@ export default function Contact() {
                       </>
                     )}
                   </Button>
+                </form> */}
+                <p className="text-slate-600 text-sm mb-6">
+                  💡 <strong>Tip:</strong> Please include your project details, preferred timeline, and any special requirements so we can assist you faster!
+                </p>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+
+                    const subject = encodeURIComponent(`New project inquiry from ${formData.name}`);
+                    const body = encodeURIComponent(
+                      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nService: ${formData.service_interest}\nBudget: ${formData.project_budget}\n\nMessage:\n${formData.message}`
+                    );
+
+                    window.location.href = `mailto:hello@nivraminnovations.co.za?subject=${subject}&body=${body}`;
+                  }}
+                  className="space-y-6"
+                >
+                  {/* ...all your inputs remain the same... */}
+
+                  <Button
+                    type="submit"
+                    className="w-full cape-town-gradient hover:opacity-90 text-white py-6 text-lg rounded-full hover-glow shadow-lg"
+                  >
+                    Let&apos;s Make Magic Happen! ✨
+                  </Button>
                 </form>
+
               </CardContent>
             </Card>
           </motion.div>
