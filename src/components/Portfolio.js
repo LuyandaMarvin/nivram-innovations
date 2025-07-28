@@ -7,6 +7,7 @@ import { ExternalLink, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const projects = [
   {
@@ -74,7 +75,7 @@ export default function Portfolio() {
             Our Amazing <span className="gradient-text">Work</span> 🎨
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Check out some of the incredible projects we've built with love from Cape Town! Each one tells a unique story.
+            Check out some of the incredible projects we&apos;ve built with love from Cape Town! Each one tells a unique story.
           </p>
         </motion.div>
 
@@ -89,7 +90,7 @@ export default function Portfolio() {
             >
               <Card className="bg-white/80 border-white/50 hover-glow overflow-hidden group shadow-lg">
                 <div className="relative overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"

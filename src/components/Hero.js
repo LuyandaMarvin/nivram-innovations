@@ -60,7 +60,7 @@ export default function Hero() {
             className="cape-town-gradient hover:opacity-90 text-white px-10 py-6 text-lg rounded-full hover-glow shadow-lg"
             onClick={() => scrollToSection('contact')}
           >
-            Let's Create Magic! ✨
+            Let&apos;s Create Magic! ✨
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           

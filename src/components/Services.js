@@ -120,7 +120,7 @@ export default function Services() {
                       className="text-sky-600 hover:text-sky-700 hover:bg-sky-100 font-semibold"
                       onClick={scrollToContact}
                     >
-                      Let's Talk! 💬
+                      Let&apos;s Talk! 💬
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
@@ -143,7 +143,7 @@ export default function Services() {
             Ready to Build Something Incredible?
           </h3>
           <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            From Table Mountain to global success - let's create your next big thing together! 
+            From Table Mountain to global success - let&apos;s create your next big thing together! 
           </p>
           <Button
             size="lg"

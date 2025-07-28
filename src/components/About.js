@@ -50,7 +50,7 @@ export default function About() {
             
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
-                🌟 Based in the beautiful Mother City of Cape Town, we're a team of passionate 
+                🌟 Based in the beautiful Mother City of Cape Town, we&apos;re a team of passionate 
                 tech enthusiasts who believe that great software should be both powerful and 
                 delightful to use!
               </p>
@@ -68,8 +68,8 @@ export default function About() {
               </p>
               
               <p>
-                🤝 Whether you're a startup with big dreams or an established business ready 
-                to innovate, we're here to turn your vision into reality with enthusiasm, 
+                🤝 Whether you&apos;re a startup with big dreams or an established business ready 
+                to innovate, we&apos;re here to turn your vision into reality with enthusiasm, 
                 expertise, and a touch of Cape Town magic!
               </p>
             </div>

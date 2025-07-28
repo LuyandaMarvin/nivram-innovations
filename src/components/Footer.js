@@ -13,7 +13,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold gradient-text mb-4">Nivram Innovations</h3>
             <p className="text-slate-300 mb-6 max-w-md">
               Creating amazing tech solutions with love from Cape Town! 🏔️ 
-              Let's build the future together, one line of code at a time! ✨
+              Let&apos;s build the future together, one line of code at a time! ✨
             </p>
             <div className="flex items-center text-slate-400 text-sm">
               <div className="flex items-center gap-2">

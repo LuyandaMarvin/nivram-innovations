@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Contact as ContactEntity } from "@/entities/Contact.schema";
+// import { Contact as ContactEntity } from "@/entities/Contact.schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,28 +23,28 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
     
-    try {
-      await ContactEntity.create(formData);
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service_interest: '',
-        project_budget: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+  //   try {
+  //     await ContactEntity.create(formData);
+  //     setIsSubmitted(true);
+  //     setFormData({
+  //       name: '',
+  //       email: '',
+  //       company: '',
+  //       phone: '',
+  //       service_interest: '',
+  //       project_budget: '',
+  //       message: ''
+  //     });
+  //   } catch (error) {
+  //     console.error('Error submitting form:', error);
+  //   }
     
-    setIsSubmitting(false);
-  };
+  //   setIsSubmitting(false);
+  // };
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -65,9 +65,9 @@ export default function Contact() {
               <CheckCircle className="w-10 h-10 text-white" />
             </div>
             <h3 className="text-3xl font-bold mb-4 text-slate-800">Awesome! We Got Your Message! 🚀</h3>
-            <p className="text-xl text-slate-600 mb-6">
-              Thanks for reaching out! We'll get back to you faster than you can say "Table Mountain" - within 24 hours! ⏰
-            </p>
+           <p className="text-xl text-slate-600 mb-6">
+              Thanks for reaching out! We&apos;ll get back to you faster than you can say &quot;Table Mountain&quot; - within 24 hours! ⏰
+            </p> 
             <Button
               onClick={() => setIsSubmitted(false)}
               className="cape-town-gradient hover:opacity-90 text-white px-8 py-4 rounded-full shadow-lg"
@@ -92,10 +92,10 @@ export default function Contact() {
         >
           <div className="text-6xl mb-6">💬</div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-slate-800">
-            Let's <span className="gradient-text">Connect</span>!
+            Let&apos;s <span className="gradient-text">Connect</span>!
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Ready to bring your amazing ideas to life? Let's chat over some rooibos tea and create something incredible together! ☕
+            Ready to bring your amazing ideas to life? Let&apos;s chat over some rooibos tea and create something incredible together! ☕
           </p>
         </motion.div>
 
@@ -177,10 +177,10 @@ export default function Contact() {
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-2">✨</div>
-                  <h3 className="text-2xl font-bold text-slate-800">Let's Start Something Amazing!</h3>
+                  <h3 className="text-2xl font-bold text-slate-800">Let&apos;s Start Something Amazing!</h3>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={() =>{}} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -249,7 +249,7 @@ export default function Contact() {
                           <SelectItem value="ux_design">🎨 UX/UI Design</SelectItem>
                           <SelectItem value="ai_web_apps">🤖 AI Web Apps</SelectItem>
                           <SelectItem value="ai_agents">🤖 AI Agents</SelectItem>
-                          <SelectItem value="consultation">💬 Let's Chat First</SelectItem>
+                          <SelectItem value="consultation">💬 Let&apos;s Chat First</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -297,7 +297,7 @@ export default function Contact() {
                       </>
                     ) : (
                       <>
-                        Let's Make Magic Happen! ✨
+                        Let&apos;s Make Magic Happen! ✨
                         <Send className="w-5 h-5 ml-2" />
                       </>
                     )}
