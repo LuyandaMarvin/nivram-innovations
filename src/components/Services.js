@@ -94,7 +94,7 @@ export default function Services() {
           <div>
             <h3 className="text-xl font-bold text-white mb-1">Have a project in mind?</h3>
             <p className="text-zinc-400 text-sm max-w-sm">
-              Tell us what you're building and we'll scope it together — no commitment required.
+              Tell us what you&apos;re building and we&apos;ll scope it together — no commitment required.
             </p>
           </div>
           <button

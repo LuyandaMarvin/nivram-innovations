@@ -63,9 +63,9 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">Contact</span>
-            <h2 className="text-4xl font-bold text-zinc-900 mt-3 mb-4 tracking-tight">Let's talk.</h2>
+            <h2 className="text-4xl font-bold text-zinc-900 mt-3 mb-4 tracking-tight">Let&apos;s talk.</h2>
             <p className="text-zinc-500 text-sm leading-relaxed mb-10">
-              Tell us about your project and we'll come back to you with a clear plan and timeline.
+              Tell us about your project and we&apos;ll come back to you with a clear plan and timeline.
             </p>
 
             <div className="space-y-5">

@@ -70,7 +70,7 @@ export default function Portfolio() {
           <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">Selected work</span>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mt-3 mb-3 tracking-tight">Projects</h2>
           <p className="text-zinc-500 max-w-lg">
-            A selection of products we've designed and built for clients.
+            A selection of products we&apos;ve designed and built for clients.
           </p>
         </motion.div>
 

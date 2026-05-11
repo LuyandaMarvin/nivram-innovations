@@ -55,7 +55,7 @@ export default function About() {
               </p>
               <p>
                 We believe the best software comes from close collaboration, honest communication,
-                and a genuine investment in understanding our clients' goals.
+                and a genuine investment in understanding our clients&apos; goals.
               </p>
             </div>
 
