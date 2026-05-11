@@ -10,15 +10,33 @@ const projects = [
     title: "Anotly",
     description:
       "Proof-first hiring prep for tech roles: structured projects, evidence-backed claims, hiring-readiness guidance, and resumes and cover letters derived from real work—not generic AI fluff.",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
+    image: "/anotly-portfolio.png",
     tags: ["Next.js", "SaaS", "Career tools", "Evidence & proof"],
     category: "Web product",
     url: "https://www.anotly.com/",
   },
   {
+    title: "Hospiflow",
+    description:
+      "Rails SaaS for clinics and pharmacies: recurring compliance checks, evidence on completion, and exportable audit trails—so sites stay inspection-ready without paper or spreadsheets. Multi-tenant; focused on operations and compliance, not EMR or billing.",
+    image: "/hospiflow-portfolio.png",
+    tags: ["Ruby on Rails", "PostgreSQL", "Solid Queue", "Multi-tenant", "Healthcare compliance"],
+    category: "SaaS",
+    url: "",
+  },
+  {
+    title: "Beka",
+    description:
+      "Invite-only squads for real-world accountability: visible commitments, check-ins, and a squad feed—built for showing up with people you trust, not leaderboard hype. Expo (React Native), NestJS + Prisma, Clerk; local-first sync with push, reactions, and comments.",
+    image: "/beka-portfolio.png",
+    tags: ["Expo", "React Native", "NestJS", "Prisma", "Clerk"],
+    category: "Mobile app",
+    url: "",
+  },
+  {
     title: "VibeCode Platform",
     description: "An AI-powered code builder that lets anyone create web apps through a natural, vibe-driven interface.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop",
+    image: "/vibecode-portfolio.png",
     tags: ["AI", "Next.js", "Tailwind", "Code Builder"],
     category: "SaaS Platform",
     url: "http://vibe-build-gamma.vercel.app/",
@@ -26,7 +44,7 @@ const projects = [
   {
     title: "Smart Recruitment Platform",
     description: "AI-powered hiring platform connecting talent with companies through intelligent matching.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop",
+    image: "/recruitment-portfolio.png",
     tags: ["AI", "Python", "React", "Machine Learning"],
     category: "AI Agent",
     url: "",
@@ -34,7 +52,7 @@ const projects = [
   {
     title: "Local Business Dashboard",
     description: "Comprehensive business management system built for South African SMEs with local payment integration.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    image: "/dashboard-portfolio.png",
     tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
     category: "Web Application",
     url: "",
@@ -42,17 +60,9 @@ const projects = [
   {
     title: "E-Commerce Platform",
     description: "A full-featured online store with seamless checkout and local delivery integrations.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+    image: "/ecommerce-portfolio.png",
     tags: ["Next.js", "Stripe", "Tailwind", "PWA"],
     category: "Web Application",
-    url: "",
-  },
-  {
-    title: "Coding Learning Platform",
-    description: "Interactive platform making programming education accessible with AI-guided exercises.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop",
-    tags: ["AI", "TypeScript", "Monaco Editor", "Docker"],
-    category: "AI Web App",
     url: "",
   },
 ];
@@ -71,7 +81,7 @@ export default function Portfolio() {
           <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">Selected work</span>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mt-3 mb-3 tracking-tight">Projects</h2>
           <p className="text-zinc-500 max-w-lg">
-            A selection of products we&apos;ve designed and built for clients.
+            Our own products and selected work we have designed and shipped.
           </p>
         </motion.div>
 

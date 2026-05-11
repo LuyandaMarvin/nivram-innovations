@@ -9,7 +9,7 @@ const stats = [
   { value: "2+", label: "Years in operation" },
 ];
 
-const tags = ["Mobile Apps", "Web Platforms", "AI Products", "UX / UI", "AI Agents"];
+const tags = ["Mobile Apps", "Web Platforms", "AI Products", "UX / UI", "AI Agents", "Healthcare compliance"];
 
 export default function Hero() {
   const scroll = (id) =>
