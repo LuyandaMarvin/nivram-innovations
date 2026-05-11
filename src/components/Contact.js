@@ -2,78 +2,49 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-// import { Contact as ContactEntity } from "@/entities/Contact.schema";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 
+const EMPTY = { name: "", email: "", company: "", phone: "", service: "", budget: "", message: "" };
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    service_interest: '',
-    project_budget: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [form, setForm] = useState(EMPTY);
+  const [submitted, setSubmitted] = useState(false);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-    
-  //   try {
-  //     await ContactEntity.create(formData);
-  //     setIsSubmitted(true);
-  //     setFormData({
-  //       name: '',
-  //       email: '',
-  //       company: '',
-  //       phone: '',
-  //       service_interest: '',
-  //       project_budget: '',
-  //       message: ''
-  //     });
-  //   } catch (error) {
-  //     console.error('Error submitting form:', error);
-  //   }
-    
-  //   setIsSubmitting(false);
-  // };
+  const set = (field, value) => setForm((p) => ({ ...p, [field]: value }));
 
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Project inquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nPhone: ${form.phone}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
+    );
+    window.location.href = `mailto:hello@nivraminnovations.co.za?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    setForm(EMPTY);
   };
 
-  if (isSubmitted) {
+  if (submitted) {
     return (
-      <section id="contact" className="py-32 px-6 bg-gradient-to-br from-emerald-50 to-sky-50">
-        <div className="max-w-4xl mx-auto text-center">
+      <section id="contact" className="py-28 px-6 bg-white border-b border-zinc-100">
+        <div className="max-w-lg mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="glass-morphism rounded-3xl p-12 border border-white/50 shadow-xl"
+            transition={{ duration: 0.4 }}
           >
-            <div className="text-8xl mb-6">🎉</div>
-            <div className="w-20 h-20 rounded-full bg-gradient-to-r from-emerald-400 to-green-500 flex items-center justify-center mx-auto mb-6 shadow-lg">
-              <CheckCircle className="w-10 h-10 text-white" />
+            <div className="w-14 h-14 rounded-full bg-zinc-900 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-3xl font-bold mb-4 text-slate-800">Awesome! We Got Your Message! 🚀</h3>
-           <p className="text-xl text-slate-600 mb-6">
-              Thanks for reaching out! We&apos;ll get back to you faster than you can say &quot;Table Mountain&quot; - within 24 hours! ⏰
-            </p> 
-            <Button
-              onClick={() => setIsSubmitted(false)}
-              className="cape-town-gradient hover:opacity-90 text-white px-8 py-4 rounded-full shadow-lg"
+            <h3 className="text-2xl font-bold text-zinc-900 mb-3">Message sent</h3>
+            <p className="text-zinc-500 text-sm mb-8">
+              Your email client should have opened. We typically reply within one business day.
+            </p>
+            <button
+              onClick={() => setSubmitted(false)}
+              className="text-sm font-medium text-zinc-500 hover:text-zinc-900 underline underline-offset-4"
             >
-              Send Another Message 💌
-            </Button>
+              Send another message
+            </button>
           </motion.div>
         </div>
       </section>
@@ -81,256 +52,165 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 px-6 bg-gradient-to-br from-emerald-50 to-sky-50">
+    <section id="contact" className="py-28 px-6 bg-white border-b border-zinc-100">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <div className="text-6xl mb-6">💬</div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-slate-800">
-            Let&apos;s <span className="gradient-text">Connect</span>!
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Ready to bring your amazing ideas to life? Let&apos;s chat over some rooibos tea and create something incredible together! ☕
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Info */}
+        <div className="grid lg:grid-cols-3 gap-16">
+          {/* Left column */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="lg:col-span-1"
           >
-            <h3 className="text-2xl font-bold mb-8 text-slate-800">Get in Touch 📞</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-400 to-blue-500 flex items-center justify-center shadow-lg">
-                  <Mail className="w-6 h-6 text-white" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">Contact</span>
+            <h2 className="text-4xl font-bold text-zinc-900 mt-3 mb-4 tracking-tight">Let's talk.</h2>
+            <p className="text-zinc-500 text-sm leading-relaxed mb-10">
+              Tell us about your project and we'll come back to you with a clear plan and timeline.
+            </p>
+
+            <div className="space-y-5">
+              {[
+                { icon: Mail, label: "Email", value: "hello@nivraminnovations.co.za" },
+                { icon: Phone, label: "Phone", value: "+27 21 123 4567" },
+                { icon: MapPin, label: "Location", value: "Cape Town, South Africa" },
+              ].map(({ icon: Icon, label, value }) => (
+                <div key={label} className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-3.5 h-3.5 text-zinc-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-zinc-400 uppercase tracking-wide">{label}</div>
+                    <div className="text-sm text-zinc-700 mt-0.5">{value}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-semibold text-slate-800">Email Us! 📧</div>
-                  <div className="text-slate-600">hello@nivraminnovations.co.za</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-400 to-pink-500 flex items-center justify-center shadow-lg">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800">Call Us! 📱</div>
-                  <div className="text-slate-600">+27 21 123 4567</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-emerald-400 to-green-500 flex items-center justify-center shadow-lg">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800">Visit Us! 🏔️</div>
-                  <div className="text-slate-600">Cape Town, South Africa</div>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <div className="mt-12 p-6 glass-morphism rounded-2xl border border-white/50 shadow-lg">
-              <h4 className="font-bold mb-4 text-slate-800">Why Choose Nivram? 🌟</h4>
-              <ul className="space-y-3 text-sm text-slate-600">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-orange-400 mr-3"></div>
-                  Free consultation & project estimate 💰
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-orange-400 mr-3"></div>
-                  24/7 support & maintenance 🛠️
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-orange-400 mr-3"></div>
-                  Agile development process ⚡
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-orange-400 mr-3"></div>
-                  100% satisfaction guarantee ✅
-                </li>
+            <div className="mt-10 border border-zinc-100 rounded-xl p-6 bg-zinc-50">
+              <h4 className="text-sm font-semibold text-zinc-900 mb-3">Why work with us</h4>
+              <ul className="space-y-2">
+                {[
+                  "Free consultation and project estimate",
+                  "Ongoing support and maintenance",
+                  "Agile, transparent process",
+                  "Satisfaction guaranteed",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-xs text-zinc-500">
+                    <span className="w-1 h-1 rounded-full bg-[#e11d48] flex-shrink-0 mt-1.5" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Card className="bg-white/70 border-white/50 shadow-xl">
-              <CardContent className="p-8">
-                <div className="text-center mb-6">
-                  <div className="text-4xl mb-2">✨</div>
-                  <h3 className="text-2xl font-bold text-slate-800">Let&apos;s Start Something Amazing!</h3>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs font-medium text-zinc-600 mb-1.5">Full name *</label>
+                  <input
+                    required
+                    value={form.name}
+                    onChange={(e) => set("name", e.target.value)}
+                    placeholder="Jane Smith"
+                    className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
+                  />
                 </div>
-                
-                {/* <form onSubmit={() =>{}} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Your Name ✨
-                      </label>
-                      <Input
-                        required
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="bg-white/80 border-slate-200 text-slate-800 focus:border-sky-400"
-                        placeholder="What should we call you?"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Email Address 📧
-                      </label>
-                      <Input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        className="bg-white/80 border-slate-200 text-slate-800 focus:border-sky-400"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
+                <div>
+                  <label className="block text-xs font-medium text-zinc-600 mb-1.5">Email address *</label>
+                  <input
+                    required
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => set("email", e.target.value)}
+                    placeholder="jane@company.com"
+                    className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
+                  />
+                </div>
+              </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Company 🏢
-                      </label>
-                      <Input
-                        value={formData.company}
-                        onChange={(e) => handleInputChange('company', e.target.value)}
-                        className="bg-white/80 border-slate-200 text-slate-800 focus:border-sky-400"
-                        placeholder="Your awesome company"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Phone Number 📱
-                      </label>
-                      <Input
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        className="bg-white/80 border-slate-200 text-slate-800 focus:border-sky-400"
-                        placeholder="+27 21 123 4567"
-                      />
-                    </div>
-                  </div>
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs font-medium text-zinc-600 mb-1.5">Company</label>
+                  <input
+                    value={form.company}
+                    onChange={(e) => set("company", e.target.value)}
+                    placeholder="Your company"
+                    className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-zinc-600 mb-1.5">Phone</label>
+                  <input
+                    value={form.phone}
+                    onChange={(e) => set("phone", e.target.value)}
+                    placeholder="+27 21 123 4567"
+                    className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
+                  />
+                </div>
+              </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        What Can We Build? 🛠️
-                      </label>
-                      <Select value={formData.service_interest} onValueChange={(value) => handleInputChange('service_interest', value)}>
-                        <SelectTrigger className="bg-white/80 border-slate-200 text-slate-800">
-                          <SelectValue placeholder="Pick your adventure!" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="mobile_apps">📱 Mobile Apps</SelectItem>
-                          <SelectItem value="web_applications">🌐 Web Applications</SelectItem>
-                          <SelectItem value="ux_design">🎨 UX/UI Design</SelectItem>
-                          <SelectItem value="ai_web_apps">🤖 AI Web Apps</SelectItem>
-                          <SelectItem value="ai_agents">🤖 AI Agents</SelectItem>
-                          <SelectItem value="consultation">💬 Let&apos;s Chat First</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Budget Range 💰
-                      </label>
-                      <Select value={formData.project_budget} onValueChange={(value) => handleInputChange('project_budget', value)}>
-                        <SelectTrigger className="bg-white/80 border-slate-200 text-slate-800">
-                          <SelectValue placeholder="What's your budget?" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under_10k">Under R150,000</SelectItem>
-                          <SelectItem value="10k_25k">R150k - R400k</SelectItem>
-                          <SelectItem value="25k_50k">R400k - R800k</SelectItem>
-                          <SelectItem value="50k_100k">R800k - R1.5M</SelectItem>
-                          <SelectItem value="over_100k">Over R1.5M</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Tell Us About Your Dream Project! 💭
-                    </label>
-                    <Textarea
-                      required
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      className="bg-white/80 border-slate-200 text-slate-800 h-32 focus:border-sky-400"
-                      placeholder="Share your vision, goals, and any exciting ideas you have! The more details, the better we can help you! ✨"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full cape-town-gradient hover:opacity-90 text-white py-6 text-lg rounded-full hover-glow shadow-lg"
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs font-medium text-zinc-600 mb-1.5">Service needed</label>
+                  <select
+                    value={form.service}
+                    onChange={(e) => set("service", e.target.value)}
+                    className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 bg-white focus:outline-none focus:border-zinc-400 transition-colors"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Sending Your Message... 🚀
-                      </>
-                    ) : (
-                      <>
-                        Let&apos;s Make Magic Happen! ✨
-                        <Send className="w-5 h-5 ml-2" />
-                      </>
-                    )}
-                  </Button>
-                </form> */}
-                <p className="text-slate-600 text-sm mb-6">
-                  💡 <strong>Tip:</strong> Please include your project details, preferred timeline, and any special requirements so we can assist you faster!
-                </p>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-
-                    const subject = encodeURIComponent(`New project inquiry from ${formData.name}`);
-                    const body = encodeURIComponent(
-                      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nService: ${formData.service_interest}\nBudget: ${formData.project_budget}\n\nMessage:\n${formData.message}`
-                    );
-
-                    window.location.href = `mailto:hello@nivraminnovations.co.za?subject=${subject}&body=${body}`;
-                  }}
-                  className="space-y-6"
-                >
-                  {/* ...all your inputs remain the same... */}
-
-                  <Button
-                    type="submit"
-                    className="w-full cape-town-gradient hover:opacity-90 text-white py-6 text-lg rounded-full hover-glow shadow-lg"
+                    <option value="">Select a service</option>
+                    <option value="mobile_apps">Mobile Apps</option>
+                    <option value="web_applications">Web Applications</option>
+                    <option value="ux_design">UX/UI Design</option>
+                    <option value="ai_web_apps">AI Web Apps</option>
+                    <option value="ai_agents">AI Agents</option>
+                    <option value="consultation">General Consultation</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-zinc-600 mb-1.5">Budget range</label>
+                  <select
+                    value={form.budget}
+                    onChange={(e) => set("budget", e.target.value)}
+                    className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 bg-white focus:outline-none focus:border-zinc-400 transition-colors"
                   >
-                    Let&apos;s Make Magic Happen! ✨
-                  </Button>
-                </form>
+                    <option value="">Select a range</option>
+                    <option value="under_150k">Under R150,000</option>
+                    <option value="150k_400k">R150k – R400k</option>
+                    <option value="400k_800k">R400k – R800k</option>
+                    <option value="800k_1_5m">R800k – R1.5M</option>
+                    <option value="over_1_5m">Over R1.5M</option>
+                  </select>
+                </div>
+              </div>
 
-              </CardContent>
-            </Card>
+              <div>
+                <label className="block text-xs font-medium text-zinc-600 mb-1.5">Message *</label>
+                <textarea
+                  required
+                  value={form.message}
+                  onChange={(e) => set("message", e.target.value)}
+                  placeholder="Tell us about your project, goals, and timeline..."
+                  rows={5}
+                  className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 px-7 py-3 bg-zinc-900 hover:bg-zinc-700 text-white text-sm font-semibold rounded-lg transition-colors"
+              >
+                Send message <Send className="w-4 h-4" />
+              </button>
+            </form>
           </motion.div>
         </div>
       </div>

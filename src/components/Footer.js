@@ -1,66 +1,57 @@
 "use client";
 
 import React from "react";
-import { Heart, ExternalLink, MapPin } from "lucide-react";
 import Link from "next/link";
-
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-6 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
+    <footer className="bg-zinc-900 px-6 py-14">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text mb-4">Nivram Innovations</h3>
-            <p className="text-slate-300 mb-6 max-w-md">
-              Creating amazing tech solutions with love from Cape Town! 🏔️ 
-              Let&apos;s build the future together, one line of code at a time! ✨
+            <div className="text-sm font-bold text-white mb-3">Nivram Innovations</div>
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
+              A software studio building mobile, web, and AI products for businesses that want to grow.
+              Based in Cape Town — working worldwide.
             </p>
-            <div className="flex items-center text-slate-400 text-sm">
-              <div className="flex items-center gap-2">
-                <span>Made with</span>
-                <Heart className="w-4 h-4 text-red-500" />
-                <span>in Cape Town</span>
-                <MapPin className="w-4 h-4 text-orange-500" />
-                <span>🇿🇦</span>
-              </div>
-            </div>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Our Services 🛠️</h4>
-            <ul className="space-y-2 text-slate-300">
-              <li><a href="#services" className="hover:text-sky-400 transition-colors">📱 Mobile Apps</a></li>
-              <li><a href="#services" className="hover:text-sky-400 transition-colors">🌐 Web Applications</a></li>
-              <li><a href="#services" className="hover:text-sky-400 transition-colors">🎨 UX/UI Design</a></li>
-              <li><a href="#services" className="hover:text-sky-400 transition-colors">🤖 AI Solutions</a></li>
+            <h4 className="text-xs font-semibold text-zinc-500 tracking-widest uppercase mb-4">Services</h4>
+            <ul className="space-y-2.5 text-zinc-400 text-sm">
+              {["Mobile Apps", "Web Applications", "UX/UI Design", "AI Solutions"].map((s) => (
+                <li key={s}>
+                  <a href="#services" className="hover:text-white transition-colors">{s}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Company 🏢</h4>
-            <ul className="space-y-2 text-slate-300">
-              <li><a href="#about" className="hover:text-sky-400 transition-colors">🏔️ About Us</a></li>
-              <li><a href="#portfolio" className="hover:text-sky-400 transition-colors">🎨 Our Work</a></li>
-              <li><a href="#contact" className="hover:text-sky-400 transition-colors">💬 Get in Touch</a></li>
-              <li>
-                <a href="#" className="hover:text-sky-400 transition-colors flex items-center">
-                  📝 Blog <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-              </li>
+            <h4 className="text-xs font-semibold text-zinc-500 tracking-widest uppercase mb-4">Company</h4>
+            <ul className="space-y-2.5 text-zinc-400 text-sm">
+              {[
+                { label: "About", href: "#about" },
+                { label: "Work", href: "#portfolio" },
+                { label: "Contact", href: "#contact" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="hover:text-white transition-colors">{l.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-slate-400 text-sm mb-4 md:mb-0">
-            © 2024 Nivram Innovations. Built with ❤️ in Cape Town, South Africa 🇿🇦
+        <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-zinc-500 text-xs">
+            &copy; {new Date().getFullYear()} Nivram Innovations. All rights reserved.
           </div>
-         <div className="flex gap-6 text-slate-400 text-sm">
-          <Link href="/privacy-policy" className="hover:text-sky-400 transition-colors">Privacy Policy</Link>
-          <Link href="/terms-of-service" className="hover:text-sky-400 transition-colors">Terms of Service</Link>
-          <Link href="/cookie-policy" className="hover:text-sky-400 transition-colors">Cookie Policy</Link>
-        </div>
+          <div className="flex gap-6 text-zinc-500 text-xs">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookies</Link>
+          </div>
         </div>
       </div>
     </footer>

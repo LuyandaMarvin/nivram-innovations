@@ -2,117 +2,97 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, Zap, Target, Users } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Target, Users, Shield, Zap } from "lucide-react";
 
 const values = [
   {
     icon: Target,
-    emoji: "🎯",
-    title: "Innovation First",
-    description: "We're always exploring the latest tech trends and bringing fresh, creative solutions to every project!"
+    title: "Outcome-focused",
+    description: "We measure success by the impact our software creates — not just by shipping features.",
   },
   {
     icon: Users,
-    emoji: "🤝",
-    title: "Client Love",
-    description: "Your success makes us happy! We build lasting partnerships based on trust, transparency, and amazing results."
+    title: "True partnership",
+    description: "We work as an extension of your team with full transparency at every stage.",
   },
   {
-    icon: Heart,
-    emoji: "❤️",
-    title: "Quality with Love",
-    description: "Every line of code, every design element is crafted with care, attention to detail, and genuine passion."
+    icon: Shield,
+    title: "Quality by default",
+    description: "Every codebase, interface, and deployment is held to the same high standard.",
   },
   {
     icon: Zap,
-    emoji: "⚡",
-    title: "Cape Town Speed",
-    description: "Fast, efficient delivery without compromising quality. We move as fast as the Cape Doctor wind!"
-  }
+    title: "Fast iteration",
+    description: "Lean processes that keep projects moving without cutting corners.",
+  },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 bg-gradient-to-br from-sky-50 to-white">
+    <section id="about" className="py-28 px-6 bg-zinc-50 border-b border-zinc-100">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="text-6xl mb-6">🏔️</div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-slate-800">
-              About <span className="gradient-text">Nivram</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">About us</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mt-3 mb-8 tracking-tight">
+              Built in Cape Town.<br />Working globally.
             </h2>
-            
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+
+            <div className="space-y-4 text-zinc-500 text-sm leading-relaxed">
               <p>
-                🌟 Based in the beautiful Mother City of Cape Town, we&apos;re a team of passionate 
-                tech enthusiasts who believe that great software should be both powerful and 
-                delightful to use!
+                Nivram Innovations is a software development studio based in Cape Town, South Africa.
+                We partner with startups and established businesses to design, build, and scale
+                digital products that solve real problems.
               </p>
-              
               <p>
-                🚀 From the slopes of Table Mountain to screens around the world, we create 
-                digital experiences that not only solve real problems but also bring joy 
-                to the people who use them. Every project is an adventure!
+                Our team brings together expertise across mobile, web, design, and AI — giving
+                clients a single, accountable partner across the full product lifecycle.
               </p>
-              
               <p>
-                🎨 We combine South African creativity with world-class technical expertise, 
-                delivering solutions that are as beautiful as a Cape Town sunset and as 
-                reliable as the Atlantic Ocean breeze.
-              </p>
-              
-              <p>
-                🤝 Whether you&apos;re a startup with big dreams or an established business ready 
-                to innovate, we&apos;re here to turn your vision into reality with enthusiasm, 
-                expertise, and a touch of Cape Town magic!
+                We believe the best software comes from close collaboration, honest communication,
+                and a genuine investment in understanding our clients' goals.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 mt-12">
-              <div className="text-center glass-morphism rounded-2xl p-6 border border-white/50">
-                <div className="text-3xl mb-2">🎉</div>
-                <div className="text-3xl font-bold gradient-text mb-2">500+</div>
-                <div className="text-slate-600 font-medium">Happy Projects</div>
-              </div>
-              <div className="text-center glass-morphism rounded-2xl p-6 border border-white/50">
-                <div className="text-3xl mb-2">⭐</div>
-                <div className="text-3xl font-bold gradient-text mb-2">98%</div>
-                <div className="text-slate-600 font-medium">Client Satisfaction</div>
-              </div>
+            <div className="grid grid-cols-2 divide-x divide-zinc-100 border border-zinc-100 rounded-xl overflow-hidden mt-12">
+              {[
+                { value: "50+", label: "Projects delivered" },
+                { value: "98%", label: "Client retention" },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-white px-8 py-7">
+                  <div className="text-3xl font-bold text-zinc-900">{stat.value}</div>
+                  <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wide">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            {values.map((value, index) => (
+            {values.map((v, i) => (
               <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={v.title}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
                 viewport={{ once: true }}
+                className="bg-white border border-zinc-100 rounded-xl p-6 hover:border-zinc-300 hover:shadow-sm transition-all duration-200"
               >
-                <Card className="bg-white/70 border-white/50 hover-glow h-full shadow-lg">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-4xl mb-4">{value.emoji}</div>
-                    <div className="w-12 h-12 rounded-xl cape-town-gradient flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <value.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold mb-3 text-slate-800">{value.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{value.description}</p>
-                  </CardContent>
-                </Card>
+                <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center mb-4">
+                  <v.icon className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-sm font-semibold text-zinc-900 mb-1.5">{v.title}</h3>
+                <p className="text-xs text-zinc-500 leading-relaxed">{v.description}</p>
               </motion.div>
             ))}
           </motion.div>

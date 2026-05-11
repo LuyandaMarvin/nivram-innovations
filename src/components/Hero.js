@@ -1,99 +1,114 @@
-"use client"
+"use client";
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, MapPin, Sun } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
+const stats = [
+  { value: "50+", label: "Projects" },
+  { value: "25+", label: "Clients" },
+  { value: "98%", label: "Retention" },
+];
+
+const tags = ["Mobile Apps", "Web Platforms", "AI Products", "UX / UI", "AI Agents"];
+
 export default function Hero() {
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const scroll = (id) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-100 via-white to-orange-100">
-      {/* Fun animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-sky-300/20 rounded-full blur-xl animate-pulse fun-bounce"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-orange-300/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-pink-300/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-28 h-28 bg-emerald-300/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
-        
-        {/* Cape Town mountain silhouette */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sky-200/30 to-transparent"></div>
-      </div>
+    <section className="min-h-screen bg-white border-b border-zinc-100 flex flex-col">
+      {/* Thin top bar */}
+      <div className="border-b border-zinc-100 h-px w-full" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center mt-25">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-morphism mb-8 border border-sky-200">
-            <MapPin className="w-5 h-5 text-orange-500" />
-            <span className="text-sm font-medium text-slate-700">Proudly Based in Cape Town, South Africa</span>
-            <Sun className="w-5 h-5 text-yellow-500" />
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-slate-800">
-            Build Amazing
-            <span className="gradient-text block">Tech Solutions</span>
-            Together! 🚀
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-            From the Mother City to the world! We create stunning mobile apps, web applications, 
-            and AI-powered solutions that make businesses shine ✨
-          </p>
-        </motion.div>
+      <div className="flex-1 flex flex-col max-w-7xl mx-auto w-full px-6">
+        {/* Upper row */}
+        <div className="flex-1 grid grid-cols-12 gap-0 border-b border-zinc-100">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
-        >
-          <Button
-            size="lg"
-            className="cape-town-gradient hover:opacity-90 text-white px-10 py-6 text-lg rounded-full hover-glow shadow-lg"
-            onClick={() => scrollToSection('contact')}
+          {/* Giant number — left accent column */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="col-span-4 border-r border-zinc-100 flex items-end pb-10 pt-32"
           >
-            Let&apos;s Create Magic! ✨
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-          
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-sky-300 text-slate-700 hover:bg-sky-50 bg-white/70 px-10 py-6 text-lg rounded-full hover-glow shadow-lg"
-            onClick={() => scrollToSection('services')}
-          >
-            Explore Our Services 🎯
-            <Sparkles className="w-5 h-5 ml-2" />
-          </Button>
-        </motion.div>
+            <div>
+              <span className="block text-[11rem] font-black text-zinc-900 leading-none tracking-tighter select-none">
+                NI
+              </span>
+              <span className="block text-xs font-semibold tracking-[0.3em] uppercase text-zinc-400 mt-2 ml-1">
+                Cape Town · Est. 2023
+              </span>
+            </div>
+          </motion.div>
 
-        {/* Fun stats with emojis */}
+          {/* Main headline — center */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            className="col-span-8 flex flex-col justify-end pb-10 pt-32 pl-12"
+          >
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-zinc-400 mb-6 flex items-center gap-3">
+              <span className="w-8 h-px bg-zinc-300 inline-block" />
+              Software Studio
+            </p>
+
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold text-zinc-900 tracking-tight leading-[1.04] mb-8 max-w-2xl">
+              We engineer products
+              {" "}
+              <span className="text-[#e11d48]">people actually use.</span>
+            </h1>
+
+            <p className="text-base text-zinc-500 max-w-md leading-relaxed mb-10">
+              Mobile apps, web platforms, and AI tools — built with precision
+              for startups and teams that care about quality.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                onClick={() => scroll("contact")}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-700 text-white text-sm font-semibold rounded-lg transition-colors"
+              >
+                Start a project <ArrowRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => scroll("portfolio")}
+                className="text-sm font-semibold text-zinc-400 hover:text-zinc-900 transition-colors underline underline-offset-4 decoration-zinc-200 hover:decoration-zinc-900"
+              >
+                See our work
+              </button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Lower row — stats + tags */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="grid grid-cols-12 gap-0"
         >
-          <div className="glass-morphism rounded-3xl p-8 hover-glow border border-white/50">
-            <div className="text-4xl mb-2">🎉</div>
-            <div className="text-3xl font-bold gradient-text mb-2">50+</div>
-            <div className="text-slate-600 font-medium">Happy Projects</div>
+          {/* Stats */}
+          <div className="col-span-4 border-r border-zinc-100 flex items-center gap-8 py-6 pr-8">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-xl font-bold text-zinc-900">{s.value}</div>
+                <div className="text-xs text-zinc-400 mt-0.5">{s.label}</div>
+              </div>
+            ))}
           </div>
-          <div className="glass-morphism rounded-3xl p-8 hover-glow border border-white/50">
-            <div className="text-4xl mb-2">🤝</div>
-            <div className="text-3xl font-bold gradient-text mb-2">25+</div>
-            <div className="text-slate-600 font-medium">Amazing Clients</div>
-          </div>
-          <div className="glass-morphism rounded-3xl p-8 hover-glow border border-white/50">
-            <div className="text-4xl mb-2">🏔️</div>
-            <div className="text-3xl font-bold gradient-text mb-2">2+</div>
-            <div className="text-slate-600 font-medium">Years from Cape Town</div>
+
+          {/* Capability tags */}
+          <div className="col-span-8 flex items-center gap-2.5 py-6 pl-12 flex-wrap">
+            <span className="text-xs text-zinc-400 mr-2 font-medium">What we build →</span>
+            {tags.map((t) => (
+              <span
+                key={t}
+                className="text-xs font-medium text-zinc-600 bg-zinc-50 border border-zinc-100 rounded-full px-3 py-1"
+              >
+                {t}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>

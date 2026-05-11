@@ -1,144 +1,125 @@
 "use client";
 
-
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Heart } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
   {
     title: "AI Resume Builder",
-    description: "A smart resume builder that helps job seekers create stunning CVs with AI-powered suggestions! 🎯",
+    description: "A smart resume builder that helps job seekers create polished CVs with AI-powered suggestions.",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
     tags: ["AI/ML", "React", "Node.js", "OpenAI"],
     category: "AI Web App",
-    emoji: "📄",
-    url: "https://anotly.com"
+    url: "https://anotly.com",
   },
   {
     title: "VibeCode Platform",
-    description: "A next‑generation AI‑powered code builder that lets anyone create web apps effortlessly with Vibe‑driven coding! ⚡",
+    description: "An AI-powered code builder that lets anyone create web apps through a natural, vibe-driven interface.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop",
     tags: ["AI", "Next.js", "Tailwind", "Code Builder"],
     category: "SaaS Platform",
-    emoji: "🚀",
-    url: "http://vibe-build-gamma.vercel.app/"
+    url: "http://vibe-build-gamma.vercel.app/",
   },
   {
     title: "Smart Recruitment Platform",
-    description: "AI-powered hiring platform that connects amazing talent with great companies using smart matching! 🤝",
+    description: "AI-powered hiring platform connecting talent with companies through intelligent matching.",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop",
     tags: ["AI", "Python", "React", "Machine Learning"],
     category: "AI Agent",
-    emoji: "🎯",
-    url: "" 
+    url: "",
   },
   {
     title: "Local Business Dashboard",
-    description: "Comprehensive business management system built for South African SMEs with local payment integration! 💼",
+    description: "Comprehensive business management system built for South African SMEs with local payment integration.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
     tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
     category: "Web Application",
-    emoji: "📊",
-    url: "" 
+    url: "",
   },
   {
-    title: "E-Commerce Paradise",
-    description: "Stunning online store with seamless shopping experience and local delivery integration! 🛍️",
+    title: "E-Commerce Platform",
+    description: "A full-featured online store with seamless checkout and local delivery integrations.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
     tags: ["Next.js", "Stripe", "Tailwind", "PWA"],
     category: "Web Application",
-    emoji: "🛒",
-    url: "" 
+    url: "",
   },
   {
     title: "Coding Learning Platform",
-    description: "Interactive coding platform that makes learning programming fun and engaging for everyone! 💻",
+    description: "Interactive platform making programming education accessible with AI-guided exercises.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop",
     tags: ["AI", "TypeScript", "Monaco Editor", "Docker"],
     category: "AI Web App",
-    emoji: "💻",
-    url: "" 
-  }
+    url: "",
+  },
 ];
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-32 px-6 bg-gradient-to-br from-orange-50 to-pink-50">
+    <section id="portfolio" className="py-28 px-6 bg-white border-b border-zinc-100">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-slate-800">
-            Our Amazing <span className="gradient-text">Work</span> 🎨
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Check out some of the incredible projects we&apos;ve built with love from Cape Town! Each one tells a unique story.
+          <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">Selected work</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mt-3 mb-3 tracking-tight">Projects</h2>
+          <p className="text-zinc-500 max-w-lg">
+            A selection of products we've designed and built for clients.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
               viewport={{ once: true }}
+              className="group border border-zinc-100 rounded-xl overflow-hidden bg-white hover:border-zinc-300 hover:shadow-sm transition-all duration-200"
             >
-              <Card className="bg-white/80 border-white/50 hover-glow overflow-hidden group shadow-lg">
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={800}
-                    height={500}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 right-4 text-3xl">{project.emoji}</div>
+              <div className="relative overflow-hidden bg-zinc-50 h-44">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={800}
+                  height={500}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <span className="absolute top-3 left-3 text-xs font-semibold bg-white text-zinc-700 px-2.5 py-1 rounded-full border border-zinc-100">
+                  {project.category}
+                </span>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-base font-semibold text-zinc-900 mb-2">{project.title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed mb-4">{project.description}</p>
+
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="text-xs text-zinc-500 bg-zinc-50 border border-zinc-100 px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="secondary" className="bg-sky-100 text-sky-700 border-sky-200 font-medium">
-                      {project.category}
-                    </Badge>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 text-slate-800">{project.title}</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs border-slate-300 text-slate-600 bg-white">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  
-                  <div className="flex gap-3">
-                    {project.url && (
-                      <Button onClick={() => window.open(project.url, "_blank")} size="sm" variant="ghost" className="text-sky-600 hover:text-sky-700 hover:bg-sky-50 p-0 font-semibold">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Project
-                      </Button>
-                    )}
-                    <Button size="sm" variant="ghost" className="text-slate-500 hover:text-slate-600 hover:bg-slate-50 p-0">
-                      <Heart className="w-4 h-4 mr-2" />
-                      Love it
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e11d48] hover:underline"
+                  >
+                    View project <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
