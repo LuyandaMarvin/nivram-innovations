@@ -26,7 +26,7 @@ const services = [
     icon: Brain,
     title: "AI-Powered Applications",
     description: "Intelligent software that automates workflows, surfaces insights, and creates differentiated product experiences.",
-    features: ["LLM Integration", "Smart Recruitment Tools", "Custom AI Pipelines", "AI Resume Builder"],
+    features: ["LLM Integration", "Smart Recruitment Tools", "Custom AI Pipelines", "Proof-first career platforms"],
   },
   {
     icon: Bot,

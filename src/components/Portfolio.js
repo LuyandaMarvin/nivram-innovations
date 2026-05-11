@@ -7,12 +7,13 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "AI Resume Builder",
-    description: "A smart resume builder that helps job seekers create polished CVs with AI-powered suggestions.",
+    title: "Anotly",
+    description:
+      "Proof-first hiring prep for tech roles: structured projects, evidence-backed claims, hiring-readiness guidance, and resumes and cover letters derived from real work—not generic AI fluff.",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop",
-    tags: ["AI/ML", "React", "Node.js", "OpenAI"],
-    category: "AI Web App",
-    url: "https://anotly.com",
+    tags: ["Next.js", "SaaS", "Career tools", "Evidence & proof"],
+    category: "Web product",
+    url: "https://www.anotly.com/",
   },
   {
     title: "VibeCode Platform",

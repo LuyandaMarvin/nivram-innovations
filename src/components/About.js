@@ -61,8 +61,8 @@ export default function About() {
 
             <div className="grid grid-cols-2 divide-x divide-zinc-100 border border-zinc-100 rounded-xl overflow-hidden mt-12">
               {[
-                { value: "50+", label: "Projects delivered" },
-                { value: "98%", label: "Client retention" },
+                { value: "12+", label: "Projects delivered" },
+                { value: "9+", label: "Client engagements" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white px-8 py-7">
                   <div className="text-3xl font-bold text-zinc-900">{stat.value}</div>

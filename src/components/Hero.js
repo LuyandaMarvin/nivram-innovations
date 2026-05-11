@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "50+", label: "Projects" },
-  { value: "25+", label: "Clients" },
-  { value: "98%", label: "Retention" },
+  { value: "12+", label: "Projects shipped" },
+  { value: "9+", label: "Client engagements" },
+  { value: "2+", label: "Years in operation" },
 ];
 
 const tags = ["Mobile Apps", "Web Platforms", "AI Products", "UX / UI", "AI Agents"];
