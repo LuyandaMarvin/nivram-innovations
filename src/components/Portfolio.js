@@ -25,6 +25,15 @@ const projects = [
     url: "",
   },
   {
+    title: "iKambi Health",
+    description:
+      "Practice management for South African private clinics: patient records, appointments, consultations, invoicing, payments, team roles, and medical-aid workflow readiness in one secure cloud system.",
+    image: "/dashboard-portfolio.png",
+    tags: ["Healthcare SaaS", "Practice management", "Patient records", "Billing workflows", "POPIA-aware"],
+    category: "Live SaaS",
+    url: "https://ikambihealth.com/",
+  },
+  {
     title: "Beka",
     description:
       "Invite-only squads for real-world accountability: visible commitments, check-ins, and a squad feed—built for showing up with people you trust, not leaderboard hype. Expo (React Native), NestJS + Prisma, Clerk; local-first sync with push, reactions, and comments.",

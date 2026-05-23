@@ -16,23 +16,22 @@ export default function Hero() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="min-h-screen bg-white border-b border-zinc-100 flex flex-col">
+    <section className="bg-white border-b border-zinc-100">
       {/* Thin top bar */}
       <div className="border-b border-zinc-100 h-px w-full" />
 
-      <div className="flex-1 flex flex-col max-w-7xl mx-auto w-full px-6">
-        {/* Upper row */}
-        <div className="flex-1 grid grid-cols-12 gap-0 border-b border-zinc-100">
-
+      {/* Single top offset clears fixed header (h-16); avoids stacking large pt-* on each column */}
+      <div className="max-w-7xl mx-auto w-full px-6 pt-20 pb-0">
+        <div className="grid grid-cols-12 gap-0 border-b border-zinc-100 items-start">
           {/* Giant number — left accent column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="col-span-4 border-r border-zinc-100 flex items-end pb-10 pt-32"
+            className="col-span-4 border-r border-zinc-100 flex flex-col justify-start pb-10 pr-4"
           >
             <div>
-              <span className="block text-[11rem] font-black text-zinc-900 leading-none tracking-tighter select-none">
+              <span className="block text-7xl sm:text-8xl lg:text-[7.5rem] xl:text-[8.5rem] font-black text-zinc-900 leading-[0.92] tracking-tighter select-none">
                 NI
               </span>
               <span className="block text-xs font-semibold tracking-[0.3em] uppercase text-zinc-400 mt-2 ml-1">
@@ -41,12 +40,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Main headline — center */}
+          {/* Main headline */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="col-span-8 flex flex-col justify-end pb-10 pt-32 pl-12"
+            className="col-span-8 flex flex-col justify-start pb-10 pl-6 sm:pl-10 lg:pl-12"
           >
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-zinc-400 mb-6 flex items-center gap-3">
               <span className="w-8 h-px bg-zinc-300 inline-block" />
