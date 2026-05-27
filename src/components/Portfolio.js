@@ -59,12 +59,13 @@ const projects = [
     url: "",
   },
   {
-    title: "Local Business Dashboard",
-    description: "Comprehensive business management system built for South African SMEs with local payment integration.",
-    image: "/dashboard-portfolio.png",
-    tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    category: "Web Application",
-    url: "",
+    title: "Asenati",
+    description:
+      "South African legal marketplace that routes urgent client issues to verified lawyers for secure payment, live chat, video consultations, reviews, disputes, and payout tracking.",
+    image: "/recruitment-portfolio.png",
+    tags: ["Legal marketplace", "Realtime chat", "Video consultations", "Payments", "Lawyer dispatch"],
+    category: "Live SaaS",
+    url: "https://asenati.com/",
   },
   {
     title: "E-Commerce Platform",
