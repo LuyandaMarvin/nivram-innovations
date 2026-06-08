@@ -47,10 +47,13 @@ export default function Footer() {
           <div className="text-zinc-500 text-xs">
             &copy; {new Date().getFullYear()} Nivram Innovations. All rights reserved.
           </div>
-          <div className="flex gap-6 text-zinc-500 text-xs">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+          <div className="flex flex-wrap justify-center md:justify-end gap-5 text-zinc-500 text-xs">
             <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/refund-policy" className="hover:text-white transition-colors">Refunds</Link>
+            <Link href="/cancellation-policy" className="hover:text-white transition-colors">Cancellations</Link>
             <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookies</Link>
+            <Link href="/contact-us" className="hover:text-white transition-colors">Contact</Link>
           </div>
         </div>
       </div>

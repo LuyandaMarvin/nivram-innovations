@@ -62,7 +62,7 @@ const projects = [
     title: "Asenati",
     description:
       "South African legal marketplace that routes urgent client issues to verified lawyers for secure payment, live chat, video consultations, reviews, disputes, and payout tracking.",
-    image: "/recruitment-portfolio.png",
+    image: "/asenati-portfolio.png",
     tags: ["Legal marketplace", "Realtime chat", "Video consultations", "Payments", "Lawyer dispatch"],
     category: "Live SaaS",
     url: "https://asenati.com/",

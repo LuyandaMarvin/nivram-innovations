@@ -1,44 +1,59 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-
 export default function PrivacyPolicy() {
-  const router = useRouter();
-
   return (
-    <main className="max-w-4xl mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
-      
-      <p className="mb-4">
-        At Nivram Innovations, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
-      </p>
-      <h2 className="text-2xl font-semibold mb-2">Information We Collect</h2>
-      <ul className="list-disc list-inside mb-4">
-        <li>Personal information you provide directly (e.g., name, email).</li>
-        <li>Usage data such as IP address, browser type, and pages visited.</li>
-        <li>Cookies and tracking technologies.</li>
-      </ul>
-      <h2 className="text-2xl font-semibold mb-2">How We Use Your Information</h2>
-      <ul className="list-disc list-inside mb-4">
-        <li>To provide and improve our services.</li>
-        <li>To communicate with you about updates, offers, or support.</li>
-        <li>To analyze usage and enhance user experience.</li>
-      </ul>
-      <h2 className="text-2xl font-semibold mb-2">Data Security</h2>
-      <p className="mb-4">
-        We implement industry-standard measures to protect your data against unauthorized access, alteration, or disclosure.
-      </p>
-      <h2 className="text-2xl font-semibold mb-6">Your Rights</h2>
-      <p>
-        You have the right to access, correct, or delete your personal data. Contact us anytime at <a href="mailto:hello@nivraminnovations.co.za" className="text-sky-400 underline">hello@nivraminnovations.co.za</a>.
+    <main className="max-w-4xl mx-auto px-6 py-16 text-zinc-700">
+      <p className="text-sm text-zinc-400 mb-3">Last updated: 8 June 2026</p>
+      <h1 className="text-4xl font-bold mb-6 text-zinc-900">Privacy Policy</h1>
+
+      <p className="mb-6">
+        Nivram Innovations respects your privacy and is committed to protecting personal information. This Privacy Policy explains how we collect, use, store, and protect information when you visit our website, contact us, purchase services, or use products operated by Nivram Innovations.
       </p>
 
-      <button
-        onClick={() => router.back()}
-        className="mt-8 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-md"
-      >
-        ← Back
-      </button>
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">Information We Collect</h2>
+      <ul className="list-disc list-inside mb-6">
+        <li>Contact details such as your name, email address, phone number, and company name.</li>
+        <li>Account and service information you provide when using one of our products.</li>
+        <li>Billing and transaction information needed to process payments and issue invoices.</li>
+        <li>Website usage data such as browser type, device information, IP address, pages visited, and cookies.</li>
+        <li>Support messages, demo requests, and other communications you send to us.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">How We Use Information</h2>
+      <ul className="list-disc list-inside mb-6">
+        <li>To provide, operate, and improve our website, software products, and services.</li>
+        <li>To respond to enquiries, support requests, and demo requests.</li>
+        <li>To process payments, subscriptions, invoices, refunds, and cancellations.</li>
+        <li>To maintain security, prevent abuse, and monitor service performance.</li>
+        <li>To comply with legal, tax, accounting, and regulatory obligations.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">Payment Processing</h2>
+      <p className="mb-6">
+        Payments may be processed by third-party payment providers such as PayFast. We do not store full card details on our website. Payment providers process payment information according to their own security and privacy requirements.
+      </p>
+
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">Sharing Information</h2>
+      <p className="mb-6">
+        We may share information with service providers who help us run our business, such as hosting, email, analytics, payment, invoicing, and support tools. We do not sell personal information.
+      </p>
+
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">Security</h2>
+      <p className="mb-6">
+        We use reasonable technical and organisational safeguards to protect personal information against unauthorised access, loss, misuse, alteration, or disclosure. No online system can be guaranteed completely secure.
+      </p>
+
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">Your Rights</h2>
+      <p className="mb-6">
+        Subject to applicable law, you may request access to, correction of, or deletion of your personal information. You may also object to certain processing or ask us to restrict processing where legally applicable.
+      </p>
+
+      <h2 className="text-2xl font-semibold mb-2 text-zinc-900">Contact</h2>
+      <p>
+        Privacy questions can be sent to{" "}
+        <a href="mailto:hello@nivraminnovations.com" className="text-[#e11d48] underline">
+          hello@nivraminnovations.com
+        </a>
+        .
+      </p>
     </main>
   );
 }

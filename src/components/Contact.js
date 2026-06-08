@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
 
 const EMPTY = { name: "", email: "", company: "", phone: "", service: "", budget: "", message: "" };
 
@@ -18,7 +18,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nPhone: ${form.phone}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
     );
-    window.location.href = `mailto:hello@nivraminnovations.co.za?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@nivraminnovations.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
     setForm(EMPTY);
   };
@@ -70,8 +70,7 @@ export default function Contact() {
 
             <div className="space-y-5">
               {[
-                { icon: Mail, label: "Email", value: "hello@nivraminnovations.co.za" },
-                { icon: Phone, label: "Phone", value: "+27 21 123 4567" },
+                { icon: Mail, label: "Email", value: "hello@nivraminnovations.com" },
                 { icon: MapPin, label: "Location", value: "Cape Town, South Africa" },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-3">
@@ -152,7 +151,7 @@ export default function Contact() {
                   <input
                     value={form.phone}
                     onChange={(e) => set("phone", e.target.value)}
-                    placeholder="+27 21 123 4567"
+                    placeholder="Your phone number"
                     className="w-full border border-zinc-200 rounded-lg px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
                   />
                 </div>
