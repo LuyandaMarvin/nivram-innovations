@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
@@ -13,7 +12,6 @@ const projects = [
     image: "/anotly-portfolio.png",
     tags: ["Next.js", "SaaS", "Career tools", "Evidence & proof"],
     category: "Web product",
-    url: "https://www.anotly.com/",
   },
   {
     title: "Hospiflow",
@@ -22,7 +20,6 @@ const projects = [
     image: "/hospiflow-portfolio.png",
     tags: ["Ruby on Rails", "PostgreSQL", "Solid Queue", "Multi-tenant", "Healthcare compliance"],
     category: "SaaS",
-    url: "",
   },
   {
     title: "iKambi Health",
@@ -31,7 +28,6 @@ const projects = [
     image: "/dashboard-portfolio.png",
     tags: ["Healthcare SaaS", "Practice management", "Patient records", "Billing workflows", "POPIA-aware"],
     category: "Live SaaS",
-    url: "https://ikambihealth.com/",
   },
   {
     title: "Beka",
@@ -40,7 +36,6 @@ const projects = [
     image: "/beka-portfolio.png",
     tags: ["Expo", "React Native", "NestJS", "Prisma", "Clerk"],
     category: "Mobile app",
-    url: "",
   },
   {
     title: "VibeCode Platform",
@@ -48,7 +43,6 @@ const projects = [
     image: "/vibecode-portfolio.png",
     tags: ["AI", "Next.js", "Tailwind", "Code Builder"],
     category: "SaaS Platform",
-    url: "http://vibe-build-gamma.vercel.app/",
   },
   {
     title: "Smart Recruitment Platform",
@@ -56,7 +50,6 @@ const projects = [
     image: "/recruitment-portfolio.png",
     tags: ["AI", "Python", "React", "Machine Learning"],
     category: "AI Agent",
-    url: "",
   },
   {
     title: "Asenati",
@@ -65,7 +58,6 @@ const projects = [
     image: "/asenati-portfolio.png",
     tags: ["Legal marketplace", "Realtime chat", "Video consultations", "Payments", "Lawyer dispatch"],
     category: "Live SaaS",
-    url: "https://asenati.com/",
   },
   {
     title: "E-Commerce Platform",
@@ -73,7 +65,6 @@ const projects = [
     image: "/ecommerce-portfolio.png",
     tags: ["Next.js", "Stripe", "Tailwind", "PWA"],
     category: "Web Application",
-    url: "",
   },
 ];
 
@@ -130,16 +121,6 @@ export default function Portfolio() {
                   ))}
                 </div>
 
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e11d48] hover:underline"
-                  >
-                    View project <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
               </div>
             </motion.div>
           ))}
